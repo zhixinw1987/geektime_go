@@ -1,0 +1,13 @@
+配置GO的系统变量
+GOROOT: GO安装路径，一般安装时默认已配置
+GOPATH: GO的项目路径
+path: 添加 GOROOT/bin 和 GOPATH/bin
+
+GO的基本目录结构
+GOPATH
+    bin
+    pkg
+    src
+
+GO的代码源文件应该放在src目录下
+初始化GO module，需要在src目录下执行go mod init, 如果在src目录外初始化go module，需要在init 命令后提供module名，否则提示错误go无法推断module名
