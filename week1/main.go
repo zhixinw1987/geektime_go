@@ -8,6 +8,7 @@ import (
 	"github.com/zhixinw1987/geektime_go/week1/collections"
 	"github.com/zhixinw1987/geektime_go/week1/control"
 	"github.com/zhixinw1987/geektime_go/week1/functions"
+	"github.com/zhixinw1987/geektime_go/week1/types"
 )
 
 func main() {
@@ -29,6 +30,10 @@ func main() {
 	functions.Defer()
 	controlDemo()
 	collDemo()
+	functions.DeferLoopV1()
+	functions.DeferLoopV2()
+	functions.DeferLoopV3()
+	typeDemo()
 }
 
 func functionsDemo() {
@@ -69,4 +74,9 @@ func collDemo() {
 	collections.Array()
 	collections.Slice()
 	collections.SubSlice()
+}
+
+func typeDemo() {
+	types.NewUser()
+	types.ChangeUser()
 }
