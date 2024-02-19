@@ -19,12 +19,12 @@ func (u *UserHandler) RegisterUserRoutes(server *gin.Engine) {
 			})
 		})
 		ug.POST("signup", func(c *gin.Context) {
-			type SignupReq struct {
+			type signupReq struct {
 				Uname string `json:"uname"`
 				Email string `json:"email"`
 				Cred  string `json:"cred"`
 			}
-			var req SignupReq
+			var req signupReq
 			//Bind方法会根据Content-Type 解析请求数据
 			if err := c.Bind(&req); err != nil {
 				fmt.Printf("error %v \n", err)
@@ -52,9 +52,17 @@ func (u *UserHandler) RegisterUserRoutes(server *gin.Engine) {
 		})
 	}
 	ug.POST("signin", func(c *gin.Context) {
-
+		type signinReq struct {
+			Uname string `json:"uname"`
+			Cred  string `json:"cred"`
+		}
+		var req signinReq
+		if err := c.Bind(&req); err != nil {
+			fmt.Printf("error parsing request %v \v", err)
+			return
+		}
 		c.JSON(http.StatusOK, gin.H{
-			"message": "signin",
+			"message": req.Uname + " have signin",
 		})
 	})
 }
